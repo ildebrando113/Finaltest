@@ -37,7 +37,7 @@ public class UtilSpettatore {
 				int sconto;
 			
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
-				java.util.Date bambini = sdf.parse("2015-01-01");
+				Date bambini =(Date) sdf.parse("2015-01-01");
 				Date date = (Date) sdf.parse(spettatore.getDatanascita());
 				if (date.after((bambini))) {
 					sconto = biglietto.getPrezzo();
@@ -51,7 +51,7 @@ public class UtilSpettatore {
 				int sconto;
 				
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
-				java.util.Date anziani = sdf.parse("1940-01-01");
+				Date anziani =(Date) sdf.parse("1940-01-01");
 				Date date = (Date) sdf.parse(spettatore.getDatanascita());
 				if (date.before(anziani)) {
 					sconto = biglietto.getPrezzo();

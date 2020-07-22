@@ -22,16 +22,20 @@ public class Test {
 			Biglietto biglietto4 = new Biglietto("A4",15);
 			Spettatore spet4 = new Spettatore(4,"alex","simonetti","1998-12-25",biglietto4);				
 			Biglietto biglietto5 = new Biglietto("A5",15);
-			Spettatore spet5 = new Spettatore(5,"sofia","rossi","2011-11-06",biglietto5);
+			Spettatore spet5 = new Spettatore(5,"sofia","rossi","2018-11-06",biglietto5);
 			List<Spettatore> spettatori = new ArrayList<>();
 			spettatori.add(spet1);
 			spettatori.add(spet2);
 			spettatori.add(spet3);
 			spettatori.add(spet4);
 			spettatori.add(spet5);
-			Film film = new Film("TuoFilm","xxxx", "dreamworks", "Action", "2h");
-			SalaCinematografica sc = new SalaCinematografica (spettatori,film);
-			sc.mostraLista();
+			Film film = new Film("TuoFilm","xxxx", "dreamworks", "Horror", "2h");
+			SalaCinematografica sala1 = new SalaCinematografica (spettatori,film);
+			sala1.mostraLista();
+			int somma = sala1.calcolaIncasso();
+			System.out.println(somma);
+			sala1.consentiIngresso(spet5, film);
+			sala1.mostraLista();
 			
 			
 		}

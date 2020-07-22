@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Cinema {
 		int incasso;
+		
 		ArrayList<SalaCinematografica> sale;
 		private Cinema() {
 			sale= new ArrayList<SalaCinematografica>();

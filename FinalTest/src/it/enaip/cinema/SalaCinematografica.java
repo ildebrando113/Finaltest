@@ -1,14 +1,15 @@
 package it.enaip.cinema;
 
-import java.sql.Date;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
 
-public class SalaCinematografica {
+public class SalaCinematografica implements Dao {
 		private static final int MAXSPET = 100;
 		ArrayList<Spettatore> sale;
 		Film film;
@@ -24,11 +25,11 @@ public class SalaCinematografica {
 
 
 
-
+		/*
 		public void addSpettatore(int idSpettatore, String nome, String cognome,String birthdate, Biglietto biglietto) {
 				sale.add(new Spettatore(idSpettatore, nome, cognome, birthdate, biglietto));
 		}
-		
+		*/
 		public void svuotaSala() {
 			sale.clear();
 		}
@@ -40,10 +41,10 @@ public class SalaCinematografica {
 			}
 			
 			if (spettatori<MAXSPET) {
-				if (film.getGenere().equalsIgnoreCase("horror")){
+				if (film.getGenere().equalsIgnoreCase("Horror")){
 					
 					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
-					java.util.Date horror = sdf.parse("2004-01-01");
+					Date  horror = (Date) sdf.parse("2004-01-01");
 					Date date = (Date) sdf.parse(spettatore.getDatanascita());
 					if (date.after(horror)) {
 						System.out.println("FilmVietato");
@@ -51,7 +52,7 @@ public class SalaCinematografica {
 					else sale.add(spettatore);
 					}
 					
-				sale.add(spettatore);	
+					
 				
 			}
 			if(spettatori>=MAXSPET) {
@@ -66,6 +67,15 @@ public class SalaCinematografica {
 			return somma;
 			
 		}
+		public  List<Spettatore> findAll(){
+			List<Spettatore> copia = new ArrayList<Spettatore>();
+			for (Spettatore spet : sale) {
+				Spettatore spett = new Spettatore(spet.getIdSpettatore(),spet.getNome(),spet.getCognome(),spet.datanascita,spet.getBiglietto());
+				copia.add(spett);
+			}
+			return copia;
+			
+		}
 		public void mostraLista() {
 			System.out.println(film.getFilm());
 			for (Spettatore spet :sale) {
@@ -74,5 +84,15 @@ public class SalaCinematografica {
 				
 			}
 		}
+
+
+
+
+		
+
+
+
+
+		
 				
 }
